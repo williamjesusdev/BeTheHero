@@ -29,12 +29,17 @@ export default function Incidents() {
     }
     setLoading(true);
 
-    const response = await api.get("incidents", { params: { page } });
-
-    setIncidents([...incidents, ...response.data]);
-    setTotal(response.headers["x-total-count"]);
-    setPage(page + 1);
-    setLoading(false);
+    api
+      .get("/incidents", { params: { page } })
+      .then((response) => {
+        setIncidents([...incidents, ...response.data]);
+        setTotal(response.headers["x-total-count"]);
+        setPage(page + 1);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error({ ...error });
+      });
   }
 
   function navigateToDetail(incident) {
@@ -55,7 +60,7 @@ export default function Incidents() {
       <S.IncidentList showsVerticalScrollIndicator={false}>
         <FlatList
           data={incidents}
-          keyExtractor={incident => String(incident.id)}
+          keyExtractor={(incident) => String(incident.id)}
           showsVerticalScrollIndicator={false}
           onEndReached={loadIncidents}
           onEndReachedThreshold={0.2}
@@ -74,7 +79,7 @@ export default function Incidents() {
               <S.Value>
                 {Intl.NumberFormat("pt-BR", {
                   style: "currency",
-                  currency: "BRL"
+                  currency: "BRL",
                 }).format(incident.value)}
               </S.Value>
               <S.Button onPress={() => navigateToDetail(incident)}>

@@ -20,13 +20,10 @@ export default function Register({ toggleTheme, theme }) {
   const history = useHistory();
 
   useEffect(() => {
-    if (!localStorage.getItem("ongName")) {
-      return history.push("/");
-    }
     if (title !== "" && description !== "" && value !== 0) {
       setValidate(true);
     }
-  }, [title, description, value, history]);
+  }, [title, description, value]);
 
   async function handleNewIncident(e) {
     e.preventDefault();
