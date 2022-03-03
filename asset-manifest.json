@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/BeTheHero/static/js/main.f0ca2518.js",
+    "static/media/heroes.png": "/BeTheHero/static/media/heroes.b413d9df5c420742fbb4.png",
+    "static/media/logo.svg": "/BeTheHero/static/media/logo.89ee24e91d8d9d736164343728beab4b.svg",
+    "static/media/logoDark.svg": "/BeTheHero/static/media/logoDark.f1e5c183082d0474b6b0a855b7b3b34c.svg",
+    "index.html": "/BeTheHero/index.html",
+    "main.f0ca2518.js.map": "/BeTheHero/static/js/main.f0ca2518.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f0ca2518.js"
+  ]
+}
