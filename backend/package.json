@@ -7,9 +7,9 @@
     "start": "node dist/server.js",
     "dev": "nodemon --exec sucrase-node src/server.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
-    "predeploy": "yarn build",
     "test": "cross-env NODE_ENV=test jest",
-    "deploy": "git init && git reset HEAD~1 && git add . && git commit -am \"make it better\" && heroku git:remote -a w-bethehero && git push heroku master -f"
+    "deploy": "git init && git add . && git commit -am \"make it better\" && heroku git:remote -a w-bethehero && git push heroku master -f",
+    "postdeploy": "rmdir /s /q .git"
   },
   "dependencies": {
     "better-sqlite3": "^7.5.0",
